@@ -1,6 +1,6 @@
 # Face-Mask-Detection
 
-A Web Application Which Has Made With The Help Of Flask.To Detect Whether The Person Is Wearing A Mask Or Not We Had Made Use Of  MobileNet As Our Primary Neural Network But We Had Tested The Other Neural Networks like ResNet50,Inception V3,VGG 19.
+A Web Application Which Has Made With The Help Of Flask.To Detect Whether The Person Is Wearing A Mask Or Not We Had Made Use Of  MobileNetV2 As Our Primary Neural Network But We Had Tested The Other Neural Networks like ResNet50,Inception V3,VGG 19.
 
 # Web-Application-Features
 
