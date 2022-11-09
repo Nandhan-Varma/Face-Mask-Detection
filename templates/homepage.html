@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Face Mask Detection</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/home-style.css')}}"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <header
+      style="
+        height: 100vh;
+        position: relative;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.214),
+            rgba(0, 0, 0, 0.214)
+          ),
+          url('static/css/Home-page-image.jpg');
+        background-size: cover;
+        color: black;
+      "
+    >
+      <nav class="container">
+        <div class="logo-img">
+          <lottie-player
+            src="https://assets10.lottiefiles.com/private_files/lf30_oGbdoA.json"
+            background="transparent"
+            speed="1"
+            style="width: 150px; height: 150px"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+        <div class="live-detection">
+          <a href="/live-cam">Live Detection 📹</a>
+        </div>
+      </nav>
+      <div class="header-container">
+        <div class="header-container-inner">
+          <h1>Face Mask Detection</h1>
+          <p>
+            A Flask Based Web Application which sends an alert to the user who
+            doesn't wear the mask
+          </p>
+          <p>
+            The Captured image is predicted with the help of deep learning model
+            which is trained with the dataset
+          </p>
+          <div class="links">
+            <a href="/logon" class="btn">SignUp</a>
+            <a href="/login" class="btn">SignIn</a>
+          </div>
+          <a href="#desc-project" class="about--prjct">About Project &darr;</a>
+        </div>
+      </div>
+    </header>
+    <section>
+      <div id="desc-project" class="about-project">
+        <h2>About Project</h2>
+        <div class="grid-container">
+          <div class="about-text">
+            <p>
+              The Main Aim Of The Project Is To Detect
+              <strong>Whether The Person Is Wearing A Mask Or Not</strong>
+            </p>
+            <p>
+              To Predict Whether The Person Is Wearing A Mask Or Not. We Are
+              Making Using Of <strong>Deep Learning.</strong>
+            </p>
+            <p>
+              Among Different Neural Networks We Make Use Of
+              <strong>MobileNet</strong> As Our Primary Neural Network Model.
+            </p>
+            <p>
+              MobileNet is more reliable for low computing devices. So for
+              detection we used MobileNet as the primary network.
+            </p>
+            <p>
+              For Developing Web Application We Made Use Of
+              <strong>Flask</strong> as a main framework and front-end
+              technologies like <strong>HTML,CSS,JS</strong>
+            </p>
+            <p>
+              The Trained Model is used for predicting the uploaded image or
+              image which was live captured or through the live cam detection.
+            </p>
+          </div>
+          <div class="theme-img">
+            <img src="static/css/main-image.jpg" alt="theme-ofproject" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <h2>About Mentor</h2>
+      </div>
+      <div class="container grid-container">
+        <div class="mentor-img">
+          <img src="" alt="madam-image" class="team-img" />
+        </div>
+        <div class="about-mentor">
+          <blockquote>
+            <strong>Padmaja Ma'am</strong> Has A Vast Experience In The Field Of
+            <strong>Computer Science.</strong> <br />
+            Ma'am Has Published Articles in Various Renowned Journals and had a
+            <strong>Great Hold</strong> On The Field Of
+            <strong>Deep Learning and Machine Learning.</strong><br />
+            Ma'am Was Always <strong>Encouraging And Helpful </strong> In Our
+            Project. Right From The Start Where We Don't Have Any Idea About The
+            Deep Learning, Transfer Learning Models. <br />From There To Right
+            Now <strong>We Learnt A Lot In Deep Learning</strong> and Able To
+            Develop Deep Learning Models. Ma'am Experience Always Has A
+            <strong> Profound Effect On Our Project.</strong>
+          </blockquote>
+
+          <h3>Profession:</h3>
+          <p><strong>A</strong>ssistant <strong>P</strong>rofessor</p>
+          <p>
+            <strong>H</strong>ead <strong>O</strong>f
+            <strong>D</strong>epartment <strong>CSE(AI & ML)</strong> Branch
+          </p>
+          <p>
+            <strong>I</strong>nstitute <strong>O</strong>f
+            <strong>A</strong>eronautical <strong>E</strong>ngineering -
+            <strong>HYD</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container team-heading">
+        <h2>About Team Mates In Group</h2>
+      </div>
+      <div class="container about-group">
+        <div class="team-member1 about-member">
+          <div>
+            <h4>Team Member 1</h4>
+            <ul class="about">
+              <li>
+                <strong>Name:</strong>
+                <p>Krishnaveni</p>
+              </li>
+              <li>
+                <strong>About:</strong>
+                <p>
+                  My Self Krishnaveni Who is Enthusiastic and Having A Learning
+                  Attitude In The Coding.
+                </p>
+              </li>
+              <li>
+                <strong>Contribution:</strong>
+                <p>
+                  In This Project I had contributed towards the Website
+                  Development and Training Of Different Models
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="member-image">
+          <img src="" alt="member1-image" class="team-img" />
+        </div>
+        <div class="member-image">
+          <img src="" alt="member2-image" class="team-img" />
+        </div>
+        <div class="team-member2 about-member">
+          <div>
+            <h4>Team Member 2</h4>
+            <ul class="about">
+              <li>
+                <strong>Name:</strong>
+                <p>Meghana</p>
+              </li>
+              <li>
+                <strong>About:</strong>
+                <p>
+                  My Self Meghana Who is Constantly Pushing My Boundaries For
+                  Learning New Things and always had a habit of doing atleast a
+                  single program in a day.
+                </p>
+              </li>
+              <li>
+                <strong>Contribution :</strong>
+                <p>
+                  In this project My Contribution is desigining the way where
+                  the website captures the image and predicts it and predict
+                  when ever an image file is uploaded. Also I had actively take
+                  place in Model Training.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="team-member3 about-member">
+          <div>
+            <h4>Team Member 3</h4>
+          </div>
+          <ul class="about">
+            <li>
+              <strong>Name:</strong>
+              <p>Nandhan</p>
+            </li>
+            <li>
+              <strong>About:</strong>
+              <p>
+                My Self Nandhan Who is always has a burning passion to know
+                about the current happenings in the tech industry. I am always
+                flexible to learn the new technologies and to develop atleast a
+                small application in the newly learnt technology.
+              </p>
+            </li>
+            <li>
+              <strong>Contribution:</strong>
+              <p>
+                In this project my contribution is about Trainining and Fine
+                Tuning The Models and for the user experience of the website.
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <img src="" alt="member3-image" class="team-img" />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
