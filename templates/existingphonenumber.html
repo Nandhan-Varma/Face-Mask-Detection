@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/existingph.css')}}"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <title>Existing Phone Number</title>
+  </head>
+  <body>
+    <div class="heading">
+      <h2>Existing Phone Number</h2>
+    </div>
+    <div class="content">
+      <lottie-player
+        src="https://assets1.lottiefiles.com/temp/lf20_vrU7JG.json"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 300px"
+        loop
+        autoplay
+      ></lottie-player>
+      <div class="existing">
+        <p>Hi Phone Number Is Already Taken.</p>
+        <p>Please Register With Another Phone Number</p>
+        <label>Click 👇🏻 To Register</label><br />
+        <a href="/logon">Register</a>
+      </div>
+    </div>
+  </body>
+</html>

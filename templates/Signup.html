@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/signup-style.css')}}"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <section>
+      <div class="navbar">
+        <div>
+          <lottie-player
+            src="https://assets10.lottiefiles.com/private_files/lf30_oGbdoA.json"
+            background="transparent"
+            speed="1"
+            style="width: 150px; height: 150px"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+        <div><h2>Face Mask Detection</h2></div>
+      </div>
+    </section>
+    <section>
+      <div class="content">
+        <div>
+          <lottie-player
+            src="https://assets7.lottiefiles.com/packages/lf20_q5pk6p1k.json"
+            background="transparent"
+            speed="1"
+            style="width: 0.9fr; height: 0.9fr"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+        <div class="form">
+          <form id="form-1" class="form" action="/signup" method="post">
+            <span class="title">Register</span>
+            <div class="input-field">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                name="user"
+                placeholder="Username"
+                id="username"
+                required
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <span id="u-error-message">Error message</span>
+            </div>
+            <div class="input-field">
+              <label for="mailid">Email</label>
+              <input
+                type="email"
+                name="usermail"
+                placeholder="Email"
+                id="email"
+                required
+              />
+              <span id="em-error-message">Error message</span>
+            </div>
+            <div class="input-field">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                id="pwd"
+                required
+              />
+              <span id="pwd-error-message">Error message</span>
+            </div>
+            <div class="input-field">
+              <label for="cnfpassword">Confirm Password</label>
+              <input
+                type="password"
+                name="cnfpassword"
+                placeholder="Confirm Password"
+                id="cnfpwd"
+                required
+              />
+              <span id="pwd2-error-message">Error message</span>
+            </div>
+            <div class="input-field">
+              <label for="phone">Phone Number</label>
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone Number"
+                id="phno"
+                required
+              />
+              <span id="ph-error-message">Error message</span>
+            </div>
+            <button id="btn">Register</button>
+            <label class="text-log">Already A User?</label>
+            <div class="link">
+              <a href="/login">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- <script type="text/javascript" src="static/js/another.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#u-error-message").hide();
+        $("#em-error-message").hide();
+        $("#pwd-error-message").hide();
+        $("#pwd2-error-message").hide();
+        $("#ph-error-message").hide();
+
+        var uname_error = false;
+        var email_error = false;
+        var pwd_error = false;
+        var cnfpwd_error = false;
+        var phno_error = false;
+
+        function check_uname() {
+          var pattern = /^[a-zA-Z0-9]*$/;
+          var uname = $("#username").val();
+          if (pattern.test(uname) && uname !== "") {
+            $("#u-error-message").hide();
+            $("#username").css("border-color", "#2ecc71");
+          } else if (uname === "") {
+            $("#u-error-message").html("Username Is Empty");
+            $("#u-error-message").show();
+            $("#u-error-message").css("color", "#e03131");
+            $("#username").css("border-color", "#e74c3c");
+            uname_error = true;
+          } else {
+            $("#u-error-message").html("Username Is Not Valid");
+            $("#u-error-message").show();
+            $("#u-error-message").css("color", "#e03131");
+            $("#username").css("border-color", "#e74c3c");
+            uname_error = true;
+          }
+        }
+        function check_email() {
+          var pattern =
+            /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/;
+          var uemail = $("#email").val();
+          if (pattern.test(uemail) && uemail !== "") {
+            $("#em-error-message").hide();
+            $("#email").css("border-color", "#2ecc71");
+          } else if (uemail === "") {
+            $("#em-error-message").html("E-Mail Is Empty");
+            $("#em-error-message").show();
+            $("#em-error-message").css("color", "#e03131");
+            $("#email").css("border-color", "#e74c3c");
+            email_error = true;
+          } else {
+            $("#em-error-message").html("E-Mail Format Is Not Valid");
+            $("#em-error-message").show();
+            $("#em-error-message").css("color", "#e03131");
+            $("#email").css("border-color", "#e74c3c");
+            email_error = true;
+          }
+        }
+
+        function check_pwd() {
+          var pswd = $("#pwd").val();
+          if (pswd.length > 6) {
+            $("#pwd-error-message").hide();
+            $("#pwd").css("border-color", "#2ecc71");
+          } else if (pswd === "") {
+            $("#pwd-error-message").html("Password Is Empty");
+            $("#pwd-error-message").show();
+            $("#pwd-error-message").css("color", "#e03131");
+            $("#pwd").css("border-color", "#e74c3c");
+            pwd_error = true;
+          } else {
+            $("#pwd-error-message").html("Password Length Is Less Than 6");
+            $("#pwd-error-message").show();
+            $("#pwd-error-message").css("color", "#e03131");
+            $("#pwd").css("border-color", "#e74c3c");
+            pwd_error = true;
+          }
+        }
+
+        function check_cnf_pwd() {
+          var pwd = $("#pwd").val();
+          var cnf_pwd = $("#cnfpwd").val();
+
+          if (pwd !== cnf_pwd) {
+            $("#pwd2-error-message").html("Password Didn't Match");
+            $("#pwd2-error-message").show();
+            $("#pwd2-error-messge").css("color","#e03135")
+            $("#cnfpwd").css("border-color", "#e74c3c");
+            cnfpwd_error = true;
+          } else if (cnf_pwd === "") {
+            $("#pwd2-error-message").html("Password Is Empty");
+            $("#pwd2-error-message").show();
+            $("#pwd2-error-message").css("color", "#e03131");
+            $("#cnfpwd").css("border-color", "#e74c3c");
+            cnfpwd_error = true;
+          } else {
+            $("#pwd2-error-message").hide();
+            $("#cnfpwd").css("border-color", "#2ecc71");
+          }
+        }
+
+        function check_phno() {
+          var pattern = /^[6-9][0-9]{9}$/;
+          var phno = $("#phno").val();
+          if (pattern.test(phno) && phno !== "") {
+            $("#ph-error-message").hide();
+            $("#phno").css("border-color", "#2ecc71");
+          } else if (phno === "") {
+            $("#ph-error-message").html("Phone Number Is Empty");
+            $("#ph-error-message").show();
+            $("#ph-error-message").css("color", "#e03131");
+            $("#phno").css("border-color", "#e74c3c");
+            phno_error = true;
+          } else {
+            $("#ph-error-message").html("Phone Number Is Not In Valid Format");
+            $("#ph-error-message").show();
+            $("#ph-error-message").css("color", "#e03131");
+            $("#phno").css("border-color", "#e74c3c");
+            phno_error = true;
+          }
+        }
+
+        $("#username").focusout(function () {
+          check_uname();
+        });
+
+        $("#email").focusout(function () {
+          check_email();
+        });
+
+        $("#pwd").focusout(function () {
+          check_pwd();
+        });
+
+        $("#cnfpwd").focusout(function () {
+          check_cnf_pwd();
+        });
+
+        $("#phno").focusout(function () {
+          check_phno();
+        });
+
+        $("#btn").on("submit", function validate() {
+          if (
+            uname_error === false &&
+            email_error === false &&
+            pwd_error === false &&
+            cnfpwd_error === false &&
+            phno_error === false
+          ) {
+            document.getElementById("btn").disabled = false;
+          } else {
+            document.getElementById("btn").disabled = true;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

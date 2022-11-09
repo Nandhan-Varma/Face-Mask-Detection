@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index Page</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/index-page.css')}}"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <div>
+      <section class="main-nav-container">
+        <div class="nav-bar">
+          <lottie-player
+            src="https://assets10.lottiefiles.com/private_files/lf30_oGbdoA.json"
+            background="transparent"
+            speed="1"
+            style="width: 150px; height: 150px"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+        <h2>Face Mask Detection</h2>
+        <div class="content">
+          <a href="">Jupyter Notebook</a>
+          <a href="/logon">Sign Up</a>
+          <a href="/login">Sign In </a>
+        </div>
+      </section>
+      <div>
+        <section>
+          <div class="file-options">
+            <div class="outline">
+              <div class="file-options-1">
+                <lottie-player
+                  src="https://assets4.lottiefiles.com/packages/lf20_umoglgxj.json"
+                  background="transparent"
+                  speed="1"
+                  style="width: 300px; height: 300px"
+                  loop
+                  autoplay
+                ></lottie-player>
+              </div>
+              <div class="about-options">
+                <p>
+                  Upload The File Which is in either JPG or PNG or JPEG format
+                  for prediction
+                </p>
+                <div>
+                  <form
+                    enctype="multipart/form-data"
+                    action="/uploadfile"
+                    method="post"
+                  >
+                    <label class="file-upload">
+                      <input type="file" name="files" />
+                      Select File
+                    </label>
+                    <input
+                      type="submit"
+                      name="Upload File"
+                      value="Upload"
+                      class="upload-btn"
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="outline">
+              <div class="file-options-2">
+                <lottie-player
+                  src="https://assets10.lottiefiles.com/temp/lf20_sxj3pp.json"
+                  background="transparent"
+                  speed="1"
+                  style="width: 300px; height: 300px"
+                  loop
+                  autoplay
+                ></lottie-player>
+              </div>
+              <div class="about-options">
+                <p>
+                  Clicking On The Button Will Capture The Image And Predicts
+                  Whether The Person Is Wearing Mask Or Not
+                </p>
+                <div class="capture-image">
+                  <form action="/takeimage" method="post">
+                    <input
+                      type="submit"
+                      name="Capture Image"
+                      value="Take Image"
+                      class="btn"
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

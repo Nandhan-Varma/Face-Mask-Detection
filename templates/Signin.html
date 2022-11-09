@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/signin-style.css')}}"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <section>
+      <div class="navbar">
+        <div>
+          <lottie-player
+            src="https://assets10.lottiefiles.com/private_files/lf30_oGbdoA.json"
+            background="transparent"
+            speed="1"
+            style="width: 150px; height: 150px"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+        <div><h2>Face Mask Detection</h2></div>
+      </div>
+    </section>
+    <section>
+      <div class="content">
+        <div>
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <!-- <lottie-player
+            src="https://assets5.lottiefiles.com/packages/lf20_3vbOcw.json"
+            background="transparent"
+            speed="1"
+            style="width: 0.8fr; height: 0.8fr"
+            loop
+            autoplay
+          ></lottie-player> -->
+          <lottie-player
+            src="https://assets3.lottiefiles.com/packages/lf20_f7wf1y3d.json"
+            background="transparent"
+            speed="1"
+            style="width: 0.8fr; height: 0.8fr"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+        <div class="form">
+          <form id="details-form" action="/signin" method="POST">
+            <span class="title">Sign In</span>
+            <div class="input-field">
+              <label for="username">Username</label>
+              <input
+                id="uname"
+                type="text"
+                name="username"
+                placeholder="Username"
+                required
+              />
+              <span id="u-error-message">Error Message </span>
+            </div>
+            <div class="input-field">
+              <label for="password">Password</label>
+              <input
+                id="pswd"
+                type="password"
+                name="pwd"
+                placeholder="Enter Password"
+              />
+              <span id="pwd-error-message">Error Message </span>
+            </div>
+            <input type="submit" value="Sign In" id="btn" />
+            <label class="text-reg"> Not A User? </label>
+            <div class="link">
+              <a href="/logon">SignUp</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+      $(function () {
+        $("#u-error-message").hide();
+        $("#pwd-error-message").hide();
+
+        var uname_error = false;
+        var pwd_error = false;
+
+        $("#uname").focusout(function () {
+          check_uname();
+        });
+
+        $("#pswd").focusout(function () {
+          check_pswd();
+        });
+
+        function check_uname() {
+          var pattern = /^[a-zA-Z1-9]*$/;
+          var username = $("#uname").val();
+          if (pattern.test(username) && username !== "") {
+            $("#u-error-message").hide();
+            $("#uname").css("border-color", "#2ecc71");
+          } else if (username === "") {
+            $("#u-error-message").html("Username is empty");
+            $("#u-error-message").show();
+            $("#u-error-message").css(
+              "color",
+              "#c92a2a",
+              "font-size",
+              "14px",
+              "margin-top",
+              "2px"
+            );
+            $("#uname").css("border-color", "#e74c3c");
+
+            uname_error = true;
+          } else {
+            $("u-error-message").html("Username Is Not Valid");
+            $("#u-error-message").show();
+            $("#u-error-message").css(
+              "color",
+              "#c92a2a",
+              "font-size",
+              "14px",
+              "margin-top",
+              "2px"
+            );
+            $("#uname").css("border-color", "#e74c3c");
+            uname_error = true;
+          }
+        }
+
+        function check_pswd() {
+          var password = $("#pswd").val();
+          if (password.length > 6) {
+            $("#pwd-error-message").hide();
+            $("#pswd").css("border-color", "#2ecc71");
+          } else if (password === "") {
+            $("#pwd-error-message").html("Password Is Empty");
+            $("#pwd-error-message").show();
+            $("#pwd-error-message").css(
+              "color",
+              "#c92a2a",
+              "font-size",
+              "14px",
+              "margin-top",
+              "2px"
+            );
+            $("#pswd").css("border-color", "#e74c3c");
+            pwd_error = true;
+          } else {
+            $("#pwd-error-message").html("Password Length Is Less Than 6");
+            $("#pwd-error-message").show();
+            $("#pwd-error-message").css(
+              "color",
+              "#c92a2a",
+              "font-size",
+              "14px",
+              "margin-top",
+              "2px"
+            );
+            $("pswd").css("border-color", "#e74c3c");
+            pwd_error = true;
+          }
+        }
+
+        $("details-form").on("submit", function (e) {
+          e.preventDefault();
+          uname_error = false;
+          pwd_error = false;
+
+          check_pswd();
+          check_uname();
+          if (uname_error === false && pwd_error === false) {
+            alert("Welcome to the application");
+          } else {
+            alert("Somewhere went wrong please check!!!");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
